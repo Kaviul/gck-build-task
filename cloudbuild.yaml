@@ -8,8 +8,14 @@ steps:
   - name: "gcr.io/cloud-builders/docker"
     args: ["push", "gcr.io/${PROJECT_ID}/gck-build-task:$COMMIT_SHA"]
 
-  # - name: 'gcr.io/cloud-builders/kubectl'
-  #   args: ['set', 'image', 'deployment/app-deployment', 'myapp-container=gcr.io/sit727-23t1-hossain-e8d2586/gck-build-task::$COMMIT_SHA']
-  #   env:
-  #     - 'CLOUDSDK_COMPUTE_ZONE=us-central1'
-  #     - 'CLOUDSDK_CONTAINER_CLUSTER=hello-cluster'
+  - name: "gcr.io/cloud-builders/kubectl"
+    args:
+      [
+        "set",
+        "image",
+        "deployment/app-deployment",
+        "myapp-container=gcr.io/sit727-23t1-hossain-e8d2586/gck-build-task::$COMMIT_SHA",
+      ]
+    env:
+      - "CLOUDSDK_COMPUTE_ZONE=us-central1"
+      - "CLOUDSDK_CONTAINER_CLUSTER=hello-cluster"
