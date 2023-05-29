@@ -17,5 +17,5 @@ steps:
         "myapp-container=gcr.io/sit727-23t1-hossain-e8d2586/gck-build-task:$COMMIT_SHA"
       ]
     env:
-      - "CLOUDSDK_COMPUTE_ZONE=us-central1"
+      - "CLOUDSDK_COMPUTE_ZONE=global"
       - "CLOUDSDK_CONTAINER_CLUSTER=hello-cluster"
